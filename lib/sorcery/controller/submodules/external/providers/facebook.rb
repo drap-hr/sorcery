@@ -44,7 +44,7 @@ module Sorcery
                   @site           = "https://graph.facebook.com"
                   @user_info_path = "/me"
                   @scope          = "email,offline_access"
-                  @user_info_mapping = {}
+                  @user_info_mapping = {email: :email}
                   @display        = "page"
                   @token_url      = "oauth/access_token"
                   @mode           = :query
@@ -57,6 +57,7 @@ module Sorcery
                   response = @access_token.get(@user_info_path)
                   user_hash[:user_info] = JSON.parse(response.body)
                   user_hash[:uid] = user_hash[:user_info]['id']
+                  user_hash[:email] = user_hash[:user_info]['email']
                   user_hash
                 end
                 

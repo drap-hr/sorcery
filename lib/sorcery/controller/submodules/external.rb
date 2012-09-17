@@ -127,7 +127,6 @@ module Sorcery
           #   create_from(provider) {|user| user.some_check }
           #
           def create_from(provider, params = {})
-            puts "-!" * 100
             provider = provider.to_sym
             @provider = Config.send(provider)
             @user_hash = @provider.get_user_hash
@@ -147,7 +146,7 @@ module Sorcery
               end
 
               @user.save(:validate => false)
-              user_class.sorcery_config.authentications_class.create!({config.authentications_user_id_attribute_name => @user.id, config.provider_attribute_name => provider, config.provider_uid_attribute_name => @user_hash[:uid]})
+              user_class.sorcery_config.authentications_class.create!({config.authentications_user_id_attribute_name => @user.id, config.provider_attribute_name => provider, :email => @user_hash[:email], config.provider_uid_attribute_name => @user_hash[:uid]})
             end
             @user
           end

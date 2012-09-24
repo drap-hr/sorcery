@@ -240,7 +240,7 @@ module Sorcery
           :@custom_encryption_provider           => nil,
           :@encryption_key                       => nil,
           :@salt_join_token                      => "",
-          :@salt_attribute_name                  => :salt,
+          :@salt_attribute_name                  => nil, #:salt,
           :@stretches                            => nil,
           :@subclasses_inherit_config            => false,
           :@before_authenticate                  => [],

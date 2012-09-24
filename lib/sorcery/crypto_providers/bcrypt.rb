@@ -81,6 +81,9 @@ module Sorcery
         private
         
         def join_tokens(tokens)
+          puts '-------- TOKENS -------------'
+          puts tokens.inspect
+          puts '-------- /TOKENS ------------'
           tokens.flatten.join
         end
         

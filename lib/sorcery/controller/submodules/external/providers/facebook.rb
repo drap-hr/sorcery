@@ -48,7 +48,7 @@ module Sorcery
                   @display        = "page"
                   @token_url      = "oauth/access_token"
                   @mode           = :query
-                  @parse          = :query
+                  @parse          = :json
                   @param_name     = "access_token"
                 end
                 
